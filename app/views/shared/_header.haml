@@ -1,7 +1,9 @@
-%header
-  #logo
-    = image_tag 'logo_codeshishou.png'
-  %menu
-    %ul
-      %li About
-      %li Login
+#header.pure-menu.pure-menu-horizontal
+  = image_tag 'logo_codeshishou.png', class: 'pure-menu-heading', id: 'logo_img'
+  %ul.pure-menu-list.custom-menu-list
+    %li.pure-menu-item
+      .pure-menu-link About
+    %li.pure-menu-item
+      .pure-menu-link Login
+    %li.pure-menu-item
+      .pure-menu-link Search
