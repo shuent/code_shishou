@@ -1,29 +1,13 @@
+%p#search-result-number #{ 12 } hits
 
-= render 'shared/landing'
-
-%h1 Listing projects
-
-%table
-  %thead
-    %tr
-      %th Title
-      %th Body
-      %th
-      %th
-      %th
-
-  %tbody
-    - @projects.each do |project|
-      %tr
-        %td= project.title
-        %td= project.body
-        %td= link_to 'Show', project
-        %td= link_to 'Edit', edit_project_path(project)
-        %td= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' }
-
-%br
-
-
-
+.h-projects Projects
+.projects
+  - @projects.each do |project|
+    .project-summary
+      %h2.title=project.title
+      %p.body=project.body
+      = link_to 'Show', project
+      = link_to 'Edit', edit_project_path(project)
+      = link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' }
 
 = link_to 'New Project', new_project_path

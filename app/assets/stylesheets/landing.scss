@@ -1,7 +1,7 @@
 #landing {
   width: 100vw;
   height: auto;
-  min-height: 100vh;
+  min-height: 90vh;
   background-image: url(image_path('landing_bg.png'));
   background-position: center;
   background-size: cover;
@@ -14,7 +14,6 @@
 
   .description{
     font-size: 2rem;
-    font-family: sans-serif;
   }
 
   .signup-button{
