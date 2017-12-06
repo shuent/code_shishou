@@ -5,9 +5,26 @@
   background-image: url(image_path('landing_bg.png'));
   background-position: center;
   background-size: cover;
+  position: relative;
+  text-align: center;
 
+  #logo_big{
+    padding: 8rem 0;
+  }
+
+  .description{
+    font-size: 2rem;
+    font-family: sans-serif;
+  }
+
+  .signup-button{
+    margin: 1rem 0;
+    font-size: 150%;
+    background-color: #FDFDFC;
+  }
 
 }
 
 #logo_big{
+  padding: 8rem 0;
 }
