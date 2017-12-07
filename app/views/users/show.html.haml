@@ -2,13 +2,15 @@
 
 %h1= @user.email
 
+%p self introduction here
+
 %h2 Projects
+
 %ul
-  %li Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+- @user.projects_as_owner.each do |project|
+  %li=link_to project.title, project
 
 %h2 Contribution
 %ul
-  %li Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-
-
-= link_to 'Back', users_path
+  - @user.projects_as_shishou.each do |project|
+    %li=link_to project.title, project
