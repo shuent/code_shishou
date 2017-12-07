@@ -1,5 +1,5 @@
-%p#search-result-number #{ 12 } hits
-
+%p#search-result-number #{ @projects.length } hits
+= link_to 'Create Project', new_project_path
 .h-projects Projects
 .projects
   - @projects.each do |project|
@@ -7,7 +7,3 @@
       %h2.title=project.title
       %p.body=project.body
       = link_to 'Show', project
-      = link_to 'Edit', edit_project_path(project)
-      = link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' }
-
-= link_to 'New Project', new_project_path

@@ -1,9 +1,15 @@
 #header.pure-menu.pure-menu-horizontal.pure-u-1
-  = image_tag 'logo_codeshishou.png', class: 'pure-menu-heading', id: 'logo_img'
+  = link_to image_tag( 'logo_codeshishou.png', class: 'pure-menu-heading', id: 'logo_img'), root_path
   %ul.pure-menu-list.custom-menu-list
     %li.pure-menu-item
       .pure-menu-link=link_to 'About', about_path
     %li.pure-menu-item
-      .pure-menu-link Login
-    %li.pure-menu-item
       .pure-menu-link Search
+    - if current_user
+      %li.pure-menu-item
+        .pure-menu-link=link_to 'My page', user_path(current_user)
+      %li.pure-menu-item
+        .pure-menu-link=link_to 'Sign Out', destroy_user_session_path, method: :delete
+    - else
+      %li.pure-menu-item
+        .pure-menu-link=link_to 'Sign In', new_user_session_path

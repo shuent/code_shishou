@@ -1,0 +1,4 @@
+%h1 users
+- @users.each do |user|
+  .username= user.email
+  = link_to 'Show', user

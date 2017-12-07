@@ -4,10 +4,14 @@
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %title CodeShishou
     = csrf_meta_tags
-    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
     = render 'shared/header'
-    = render 'shared/landing' if current_page?(root_path)
-    %main
-      = yield
+    = render 'shared/landing' if current_page?(root_path) && !current_user
+    - if controller_path.split('/').first == 'devise'
+      .devise-container
+        = yield
+    - else
+      %main
+        = yield
