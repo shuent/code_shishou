@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
-  resources :projects
+  resources :projects do
+    post 'be_shishou', on: :member
+  end
   root to: 'projects#index'
   resource :about, only: [:show], controller: 'about'
   devise_for :users

@@ -4,6 +4,8 @@
 .projects
   - @projects.each do |project|
     .project-summary
-      %h2.title=project.title
+      %h2.title=link_to project.title, project
       %p.body=project.body
-      = link_to 'Show', project
+      .user
+        .logo
+        .name=project.owner.email

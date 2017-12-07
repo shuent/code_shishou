@@ -9,8 +9,11 @@
   %body
     = render 'shared/header'
     = render 'shared/landing' if current_page?(root_path) && !current_user
-    - if controller_path.split('/').first == 'devise'
+    - if controller_path.split('/').first.in? ['devise']
       .devise-container
+        = yield
+    - elsif controller_path.split('/').first.in? ['about']
+      .about-container
         = yield
     - else
       %main

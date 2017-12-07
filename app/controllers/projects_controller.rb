@@ -51,6 +51,9 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def be_shishou
+  end
+
   # DELETE /projects/1
   # DELETE /projects/1.json
   def destroy

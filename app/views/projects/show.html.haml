@@ -1,12 +1,26 @@
 %p#notice= notice
 
-%p
-  %b Title:
-  = @project.title
-%p
-  %b Body:
-  = @project.body
 
-= link_to 'Edit', edit_project_path(@project)
-\|
-= link_to 'Back', projects_path
+.project-container
+  .title= @project.title
+  .user=@project.owner.email
+  .shishous=@project.shishous.map { |e| e.email  }
+  .body= @project.body
+
+
+/ if user = project.owner
+/ = link_to 'Edit', edit_project_path(@project)
+
+.become-shishou
+  =link_to 'become shishou of this project', be_shishou_project_path, method: :post
+
+/ this should be partial as chat view
+.chat-container
+  %h3 comments
+  %p you can comment if you become shishou
+  / if current_user.in?(@project.shishous); form_for @chat
+
+  - @project.chats.each do |chat|
+    .user
+    .body=chat.body
+    .date=chat.created_at

@@ -1,3 +1,17 @@
 // Place all the styles related to the about controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.about-container{
+  background-image: url(image_path('landing_bg.png'));
+  background-position: center;
+  background-size: cover;
+  width: 100vw;
+  height: auto;
+  min-height: 90vh;
+
+  .container {
+    margin: 0 auto;
+    max-width: 768px;
+    padding: 1rem;
+  }
+}
