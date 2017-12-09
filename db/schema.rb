@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171207100745) do
+ActiveRecord::Schema.define(version: 20171209181125) do
 
   create_table "chats", force: :cascade do |t|
     t.string "body"
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 20171207100745) do
     t.integer "owner_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "repository", default: "", null: false
     t.index ["owner_id"], name: "index_projects_on_owner_id"
   end
 

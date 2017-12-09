@@ -3,8 +3,11 @@
 
 .project-container
   .title= @project.title
-  .user=@project.owner.email
-  .shishous=@project.shishous.map { |e| e.email  }
+  .repository=link_to 'Go to repository', @project.repository
+  .user=@project.owner.name
+  .shishous
+    .h-shishou List of shishous
+    =@project.shishous.map{|e| e.name }
   .body= @project.body
 
 
