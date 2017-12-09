@@ -1,6 +1,6 @@
 %p#notice= notice
 
-%h1= @user.email
+%h1= @user.name
 
 %p self introduction here
 
@@ -14,3 +14,7 @@
 %ul
   - @user.projects_as_shishou.each do |project|
     %li=link_to project.title, project
+
+/ if current user == this user
+.edit_acount
+  =link_to "Account Setting", edit_user_registration_path

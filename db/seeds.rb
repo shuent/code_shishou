@@ -6,15 +6,14 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-user1 = User.create!(email:'sample1@samplee.com', password:'password')
-user2 = User.create!(email:'sample2@samplee.com', password:'password')
-user3 = User.create!(email:'sample3@samplee.com', password:'password')
+user1 = User.create!(email:'sample1@samplee.com', password:'password', name: 'name1')
+user2 = User.create!(email:'sample2@samplee.com', password:'password', name: 'name2')
+user3 = User.create!(email:'sample3@samplee.com', password:'password', name: 'name3')
 
 p1 = Project.new(title:'sample title', body: 'sample body body ..................................')
 p2 = Project.new(title:'sample　2 title', body: 'sample 2 body body ..................................')
 p1.owner = user1
 p2.owner = user2
-
 p1.save!
 p2.save!
 
