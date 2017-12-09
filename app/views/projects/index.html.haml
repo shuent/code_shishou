@@ -1,5 +1,5 @@
 %p#search-result-number #{ @projects.length } hits
-= link_to 'Create Project', new_project_path
+= link_to 'Create Project', new_project_path if policy(:project).new?
 .h-projects Projects
 .projects
   - @projects.each do |project|

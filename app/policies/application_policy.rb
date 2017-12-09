@@ -12,6 +12,7 @@ class ApplicationPolicy
 
   def show?
     scope.where(:id => record.id).exists?
+    binding.pry
   end
 
   def create?

@@ -8,4 +8,9 @@ class Project < ApplicationRecord
 
   has_many :chats
 
+  validates :title, presence: true
+  validates :body, presence: true
+  
+
+
 end

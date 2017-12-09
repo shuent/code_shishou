@@ -1,6 +1,8 @@
 class User < ApplicationRecord
 
   # validation
+  validates :name, presence: true
+  validates :name, uniqueness: true
   validates_format_of :name, with: /\A[a-zA-Z0-9_\.]*\z/
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable

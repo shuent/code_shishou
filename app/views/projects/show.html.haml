@@ -8,16 +8,16 @@
   .body= @project.body
 
 
-/ if user = project.owner
-/ = link_to 'Edit', edit_project_path(@project)
+  .edit
+    = link_to 'Edit', edit_project_path(@project) if policy(@project).edit?
 
 .become-shishou
   =link_to 'become shishou of this project', be_shishou_project_path, method: :post
 
 / this should be partial as chat view
 .chat-container
-  %h3 comments
-  %p you can comment if you become shishou
+  %h3 chats
+  %p you can chat with project owner if you become shishou of this project.
   / if current_user.in?(@project.shishous); form_for @chat
 
   - @project.chats.each do |chat|
