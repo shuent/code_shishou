@@ -24,10 +24,6 @@ class ProjectPolicy < ApplicationPolicy
     edit?
   end
 
-  def be_shishou?
-    user.present? && user != record.owner
-  end
-
 
 
   class Scope < Scope

@@ -22,7 +22,7 @@
   - if current_user
     - if @project.chats.empty?
       %p be the first shishou to start chat with owner!
-      = render 'chats/form'
+    = render 'chats/form'
   - else
     %p #{link_to 'Sign up', new_user_registration_path} for starting chat!
   = render partial: 'chats/index', locals:{chats: @project.chats}
