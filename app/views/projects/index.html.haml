@@ -1,11 +1,13 @@
 %p#search-result-number #{ @projects.length } hits
-= link_to 'Create Project', new_project_path if policy(:project).new?
+.create-project-link= link_to 'Create Project', new_project_path if policy(:project).new?
+.user-list-link= link_to 'User list', users_path
 .h-projects Projects
 .projects
   - @projects.each do |project|
     .project-summary
       %h2.title=link_to project.title, project
-      %p.body=project.body
+      %p.body= truncate(project.body)
       .user
         .logo
-        .name=project.owner.email
+        .name=project.owner.name
+    %hr

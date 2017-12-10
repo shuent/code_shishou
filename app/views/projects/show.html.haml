@@ -2,28 +2,27 @@
 
 
 .project-container
-  .title= @project.title
-  .repository=link_to 'Go to repository', @project.repository
-  .user=@project.owner.name
+  %h1.title= @project.title
+  = link_to 'Edit', edit_project_path(@project), class: 'edit-project' if policy(@project).edit?
   .shishous
-    .h-shishou List of shishous
+    .h-shishou Shishous
     =@project.shishous.map{|e| e.name }
-  .body= @project.body
+  .project-header
+    .user
+      .user-name #{@project.owner.name}
+    .repository=link_to 'Go to repository', @project.repository
 
+  .project-body= @project.body
+  .updated-at Updated at #{@project.updated_at}
 
-  .edit
-    = link_to 'Edit', edit_project_path(@project) if policy(@project).edit?
-
-.become-shishou
-  =link_to 'become shishou of this project', be_shishou_project_path, method: :post
 
 / this should be partial as chat view
-.chat-container
+.chats-container
   %h3 chats
-  %p you can chat with project owner if you become shishou of this project.
-  / if current_user.in?(@project.shishous); form_for @chat
-
-  - @project.chats.each do |chat|
-    .user
-    .body=chat.body
-    .date=chat.created_at
+  - if current_user
+    - if @project.chats.empty?
+      %p be the first shishou to start chat with owner!
+      = render 'chats/form'
+  - else
+    %p #{link_to 'Sign up', new_user_registration_path} for starting chat!
+  = render partial: 'chats/index', locals:{chats: @project.chats}

@@ -15,3 +15,29 @@
     }
   }
 }
+
+// Show
+.project-container{
+
+  .title{
+    font-weight: normal;
+  }
+  .project-header{
+    .user{
+      .user-name{
+        font-weight: bold;
+      }
+    }
+  }
+  .shishous{
+    // text-align: right;
+    float: right;
+  }
+
+  .project-body{
+    padding: 1rem 0;
+
+
+
+  }
+}

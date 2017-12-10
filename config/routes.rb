@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
 
+  get 'chats/create'
+  get 'chats/update'
+
   resources :projects do
-    post 'be_shishou', on: :member
+    resources :chats, only: [:create, :update]
   end
   root to: 'projects#index'
   resource :about, only: [:show], controller: 'about'

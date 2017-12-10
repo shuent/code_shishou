@@ -7,8 +7,8 @@
 %h2 Projects
 
 %ul
-- @user.projects_as_owner.each do |project|
-  %li=link_to project.title, project
+  - @user.projects_as_owner.each do |project|
+    %li=link_to project.title, project
 
 %h2 Contribution
 %ul
