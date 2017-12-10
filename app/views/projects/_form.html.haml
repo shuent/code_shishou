@@ -8,13 +8,14 @@
 
   .field
     = f.label :title
-    = f.text_field :title
+    = f.text_field :title,class:'pure-input-1'
   .field
     = f.label :repository, 'Repository URL e.g. https://github.com/....'
-    = f.text_field :repository
+    = f.text_field :repository,class:'pure-input-1'
   .field
-    = f.label :body
-    = f.text_area :body
+    %div
+    = f.label :body, 'Write your project detail. Markdown is supported'
+    = f.text_area :body,class:'pure-input-1'
 
     = f.hidden_field :owner_id, value: current_user.id
   .actions
