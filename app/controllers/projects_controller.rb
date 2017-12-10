@@ -55,13 +55,6 @@ class ProjectsController < ApplicationController
     end
   end
 
-  def be_shishou
-    # binding.pry
-    @project.shishous << current_user unless @project.shishous.include?(current_user)
-    redirect_to action: :show
-    #params
-  end
-
   # DELETE /projects/1
   # DELETE /projects/1.json
   def destroy

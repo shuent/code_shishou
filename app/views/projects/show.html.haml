@@ -12,13 +12,13 @@
       .user-name #{@project.owner.name}
     .repository=link_to 'Go to repository', @project.repository
 
-  .project-body= @project.body
+  .project-body= markdown(@project.body)
   .updated-at Updated at #{@project.updated_at}
 
 
 / this should be partial as chat view
 .chats-container
-  %h3 chats
+  %h3 Discussion
   - if current_user
     - if @project.chats.empty?
       %p be the first shishou to start chat with owner!
