@@ -12,10 +12,13 @@
 
 ActiveRecord::Schema.define(version: 20171209181125) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "chats", force: :cascade do |t|
     t.string "body"
-    t.integer "user_id"
-    t.integer "project_id"
+    t.bigint "user_id"
+    t.bigint "project_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["project_id"], name: "index_chats_on_project_id"
@@ -23,8 +26,8 @@ ActiveRecord::Schema.define(version: 20171209181125) do
   end
 
   create_table "project_shishous", force: :cascade do |t|
-    t.integer "shishou_id"
-    t.integer "project_id"
+    t.bigint "shishou_id"
+    t.bigint "project_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["project_id"], name: "index_project_shishous_on_project_id"
@@ -34,7 +37,7 @@ ActiveRecord::Schema.define(version: 20171209181125) do
   create_table "projects", force: :cascade do |t|
     t.text "title", null: false
     t.text "body", null: false
-    t.integer "owner_id"
+    t.bigint "owner_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "repository", default: "", null: false
@@ -60,4 +63,7 @@ ActiveRecord::Schema.define(version: 20171209181125) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "project_shishous", "projects"
+  add_foreign_key "project_shishous", "users", column: "shishou_id"
+  add_foreign_key "projects", "users", column: "owner_id"
 end
