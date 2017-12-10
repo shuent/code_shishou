@@ -21,7 +21,5 @@
 /yarn-error.log
 
 /vendor
-/config/*
-!/config/routes.rb
 
 .byebug_history
